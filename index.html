@@ -43,6 +43,12 @@
       padding: 2rem 0;
     }
 
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center all items in the profile section */
+    }
+
     .profile img {
       width: 120px;
       height: 120px;
@@ -50,6 +56,7 @@
       object-fit: cover;
       margin-bottom: 1rem;
       border: 2px solid #fff;
+      display: block; /* Ensure the image behaves as a block element for centering */
     }
 
     .profile p {
@@ -60,7 +67,7 @@
 
     /* === Expertise Section === */
     .expertise {
-      text-align: center; /* Ensure the entire section is centered */
+      text-align: center;
       padding: 2rem 0;
     }
 
@@ -78,7 +85,7 @@
     .expertise-box {
       background-color: transparent;
       width: 300px;
-      text-align: left; /* Internal content of the box remains left-aligned */
+      text-align: left;
       padding: 1rem;
       border-radius: 8px;
       transition: transform 0.3s ease;
