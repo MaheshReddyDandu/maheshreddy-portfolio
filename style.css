@@ -60,7 +60,7 @@ header {
   text-align: left;
   padding: 1.5rem 1rem;
   border-radius: 16px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Slightly increased shadow visibility */
   transition: transform 0.3s ease;
 }
 
@@ -163,4 +163,20 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .expertise-wrapper {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .expertise-box {
+    max-width: 100%;
+  }
+
+  .skill-icons {
+    gap: 1rem;
+  }
 }
