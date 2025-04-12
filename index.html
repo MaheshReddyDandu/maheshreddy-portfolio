@@ -15,13 +15,26 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    /* === Section Header === */
-    h2 {
+    /* === Gradient Heading Styles for Profile, Expertise, and Skills === */
+    .profile h1, .expertise h2, .skills h2 {
       text-align: center;
-      font-size: 1.8rem; /* Smaller, as in reference */
       margin-top: 2rem;
-      color: #fff;
-      text-transform: uppercase; /* Matches reference */
+      text-transform: uppercase;
+      background: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    /* === Specific Heading Sizes === */
+    .profile h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .expertise h2, .skills h2 {
+      font-size: 1.8rem;
     }
 
     /* === Profile Section === */
@@ -33,28 +46,11 @@
     .profile img {
       width: 120px;
       height: 120px;
-      border-radius: 50%; /* Ensures the image is round */
+      border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
       border: 2px solid #fff;
     }
-
-    .profile h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
-      color: #fff;
-    }
-    h1, h2, h3, h4, h5, h6 {
-  color: #fff; /* Fallback for unsupported browsers */
-  background: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-align: center;
-  margin-top: 2rem;
-  text-transform: uppercase;
- text-align: center;
-}
 
     .profile p {
       font-size: 1.2rem;
@@ -62,21 +58,27 @@
       margin: 0;
     }
 
-    /* === Expertise Wrapper === */
+    /* === Expertise Section === */
+    .expertise {
+      text-align: center; /* Ensure the entire section is centered */
+      padding: 2rem 0;
+    }
+
     .expertise-wrapper {
       display: flex;
-      justify-content: center; /* No wrapping, single row */
-      gap: 1.5rem; /* Tighter spacing as in reference */
-      margin: 2rem auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem auto;
       padding: 0 2rem;
-      max-width: 1400px; /* Wider to fit all boxes in one row */
+      max-width: 1400px;
     }
 
     /* === Individual Expertise Box === */
     .expertise-box {
       background-color: transparent;
-      width: 300px; /* Fixed width to match reference */
-      text-align: left;
+      width: 300px;
+      text-align: left; /* Internal content of the box remains left-aligned */
       padding: 1rem;
       border-radius: 8px;
       transition: transform 0.3s ease;
@@ -88,21 +90,21 @@
 
     /* === Icon Styling === */
     .expertise-box .icon {
-      font-size: 1.8rem; /* Smaller icon as in reference */
+      font-size: 1.8rem;
       color: white;
       margin-bottom: 0.5rem;
     }
 
     /* === Box Title === */
     .expertise-box h3 {
-      font-size: 1.1rem; /* Slightly smaller to match reference */
+      font-size: 1.1rem;
       margin: 0.2rem 0;
       color: #fff;
     }
 
     /* === Box Description === */
     .expertise-box p {
-      font-size: 0.85rem; /* Smaller font to match reference */
+      font-size: 0.85rem;
       line-height: 1.3rem;
       color: #ccc;
       margin-bottom: 0.5rem;
@@ -112,15 +114,15 @@
     .badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem; /* Tighter gap as in reference */
+      gap: 0.3rem;
     }
 
     /* === Individual Badge === */
     .badges span {
-      font-size: 0.65rem; /* Smaller badges as in reference */
+      font-size: 0.65rem;
       background-color: #fff;
       color: #000;
-      padding: 0.2rem 0.5rem; /* Compact padding */
+      padding: 0.2rem 0.5rem;
       border-radius: 10px;
       font-weight: 500;
       user-select: none;
@@ -141,7 +143,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem; /* Tighter gap to match reference */
+      gap: 1rem;
       margin: 1rem auto;
       max-width: 1400px;
       padding: 0 2rem;
@@ -151,17 +153,17 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 50px; /* Smaller width to match reference */
+      width: 50px;
     }
 
     .skill-icons i {
-      font-size: 1.5rem; /* Smaller icons as in reference */
+      font-size: 1.5rem;
       color: #fff;
       margin-bottom: 0.3rem;
     }
 
     .skill-icons p {
-      font-size: 0.75rem; /* Smaller text as in reference */
+      font-size: 0.75rem;
       margin: 0;
       color: #ccc;
     }
@@ -186,7 +188,7 @@
     /* === Responsive Adjustments === */
     @media (max-width: 768px) {
       .expertise-wrapper {
-        flex-direction: column; /* Stack boxes on smaller screens */
+        flex-direction: column;
         align-items: center;
         gap: 1rem;
         padding: 0 1rem;
@@ -259,41 +261,38 @@
       </div>
     </section>
 
-   <section class="skills">
-  <h2>Skills</h2>
-  <div class="skill-icons">
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skill-icons">
+        <div><i class="fab fa-angular"></i><p>Angular</p></div>
+        <div><i class="fab fa-node-js"></i><p>Node.js</p></div>
+        <div><i class="fas fa-database"></i><p>MySQL</p></div>
+        <div><i class="fas fa-server"></i><p>Nginx</p></div>
+        <div><i class="fab fa-docker"></i><p>Docker</p></div>
+        <div><i class="fab fa-github"></i><p>GitHub</p></div>
+        <div><i class="fab fa-windows"></i><p>Azure</p></div>
+        <div><i class="fas fa-cogs"></i><p>Databricks</p></div>
+        <div><i class="fas fa-code-branch"></i><p>Flyte</p></div>
+        <div><i class="fab fa-python"></i><p>Python</p></div>
+        <div><i class="fas fa-network-wired"></i><p>Kubernetes</p></div>
+        <div><i class="fab fa-js"></i><p>TypeScript</p></div>
+        
+        <!-- Custom or fallback icons -->
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="24"/><p>PostgreSQL</p></div>
+        <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="24"/><p>Django</p></div>
 
-    <div><i class="fab fa-angular"></i><p>Angular</p></div>
-    <div><i class="fab fa-node-js"></i><p>Node.js</p></div>
-    <div><i class="fas fa-database"></i><p>MySQL</p></div>
-    <div><i class="fas fa-server"></i><p>Nginx</p></div>
-    <div><i class="fab fa-docker"></i><p>Docker</p></div>
-    <div><i class="fab fa-github"></i><p>GitHub</p></div>
-    <div><i class="fab fa-windows"></i><p>Azure</p></div>
-    <div><i class="fas fa-cogs"></i><p>Databricks</p></div>
-    <div><i class="fas fa-code-branch"></i><p>Flyte</p></div>
-    <div><i class="fab fa-python"></i><p>Python</p></div>
-    <div><i class="fas fa-network-wired"></i><p>Kubernetes</p></div>
-    <div><i class="fab fa-js"></i><p>TypeScript</p></div>
-    
-    <!-- Custom or fallback icons -->
-    <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="24"/><p>PostgreSQL</p></div>
-    <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="24"/><p>Django</p></div>
+        <div><i class="fas fa-project-diagram"></i><p>Azure ADF</p></div>
+        <div><i class="fab fa-aws"></i><p>AWS EC2</p></div>
+        <div><i class="fab fa-aws"></i><p>AWS S3</p></div>
+        <div><i class="fas fa-cloud-upload-alt"></i><p>Azure Data Lake</p></div>
 
-    <div><i class="fas fa-project-diagram"></i><p>Azure ADF</p></div>
-    <div><i class="fab fa-aws"></i><p>AWS EC2</p></div>
-    <div><i class="fab fa-aws"></i><p>AWS S3</p></div>
-    <div><i class="fas fa-cloud-upload-alt"></i><p>Azure Data Lake</p></div>
-
-    <!-- Python libraries -->
-    <div><i class="fab fa-python"></i><p>PySpark</p></div>
-    <div><i class="fab fa-python"></i><p>NumPy</p></div>
-    <div><i class="fab fa-python"></i><p>Pandas</p></div>
-    <div><i class="fab fa-python"></i><p>Tkinter</p></div>
-
-  </div>
-</section>
-
+        <!-- Python libraries -->
+        <div><i class="fab fa-python"></i><p>PySpark</p></div>
+        <div><i class="fab fa-python"></i><p>NumPy</p></div>
+        <div><i class="fab fa-python"></i><p>Pandas</p></div>
+        <div><i class="fab fa-python"></i><p>Tkinter</p></div>
+      </div>
+    </section>
   </main>
 
   <footer>
