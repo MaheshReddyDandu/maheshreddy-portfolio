@@ -7,27 +7,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* === Global Styles === */
+    :root {
+      --gradient-text: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61);
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #000; /* Black background */
-      color: #fff; /* White text */
+      background-color: #000;
+      color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
     }
 
-    /* === Gradient Heading Styles for Profile, Expertise, and Skills === */
+    /* === Gradient Heading Styles === */
     .profile h1, .expertise h2, .skills h2 {
       text-align: center;
       margin-top: 2rem;
       text-transform: uppercase;
-      background: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61);
+      background: var(--gradient-text);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       display: inline-block;
     }
 
-    /* === Specific Heading Sizes === */
     .profile h1 {
       font-size: 2.5rem;
       margin: 0.5rem 0;
@@ -81,7 +85,6 @@
       max-width: 1400px;
     }
 
-    /* === Individual Expertise Box === */
     .expertise-box {
       background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
       backdrop-filter: blur(5px);
@@ -100,21 +103,18 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     }
 
-    /* === Icon Styling === */
     .expertise-box .icon {
       font-size: 1.8rem;
       color: white;
       margin-bottom: 0.5rem;
     }
 
-    /* === Box Title === */
     .expertise-box h3 {
       font-size: 1.1rem;
       margin: 0.2rem 0;
       color: #fff;
     }
 
-    /* === Box Description === */
     .expertise-box p {
       font-size: 0.85rem;
       line-height: 1.3rem;
@@ -122,14 +122,12 @@
       margin-bottom: 0.5rem;
     }
 
-    /* === Badge Container === */
     .badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.3rem;
     }
 
-    /* === Individual Badge === */
     .badges span {
       font-size: 0.65rem;
       background-color: #fff;
@@ -197,6 +195,179 @@
       text-decoration: underline;
     }
 
+    /* === W2E Button === */
+    .w2e-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(45deg, #4285f4, #db4437);
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 2000;
+    }
+
+    .w2e-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* === Modal Overlay === */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* === Modal Content === */
+    .modal-content {
+      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      transform: translateY(50px);
+      opacity: 0;
+      transition: transform 0.5s ease 0.1s, opacity 0.5s ease 0.1s;
+      color: #fff;
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    }
+
+    .modal-content.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Custom Scrollbar */
+    .modal-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-content::-webkit-scrollbar-track {
+      background: #2a2a2a;
+      border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb {
+      background: #4285f4;
+      border-radius: 4px;
+    }
+
+    .modal-content::-webkit-scrollbar-thumb:hover {
+      background: #357ae8;
+    }
+
+    .modal-content h2 {
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .modal-content h3 {
+      font-size: 1.4rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #fff;
+    }
+
+    .modal-content h4 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
+      color: #ddd;
+    }
+
+    .modal-content p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+    }
+
+    .modal-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+
+    .modal-content ul li {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin: 0.5rem 0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .modal-content ul li::before {
+      content: '•';
+      color: #4285f4;
+      position: absolute;
+      left: 0;
+    }
+
+    .modal-content ul ul {
+      margin-left: 1.5rem;
+    }
+
+    .modal-content ul ul li::before {
+      content: '◦';
+      color: #f4b400;
+    }
+
+    .modal-content code {
+      font-family: 'SF Mono', 'Consolas', monospace;
+      background: #2a2a2a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #f4b400;
+    }
+
+    /* === Close Button === */
+    .close-button {
+      background: #db4437;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: block;
+      margin: 2rem auto 0;
+    }
+
+    .close-button:hover {
+      background: #c1352f;
+    }
+
     /* === Responsive Adjustments === */
     @media (max-width: 768px) {
       .expertise-wrapper {
@@ -214,10 +385,215 @@
       .skill-icons {
         gap: 0.8rem;
       }
+
+      .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 85vh;
+      }
+
+      .modal-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .modal-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-content h4 {
+        font-size: 1rem;
+      }
+
+      .modal-content p, .modal-content ul li {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .modal-content {
+        padding: 1rem;
+      }
+
+      .modal-content h2 {
+        font-size: 1.3rem;
+      }
+
+      .modal-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .modal-content h4 {
+        font-size: 0.9rem;
+      }
+
+      .modal-content p, .modal-content ul li {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- W2E Button -->
+  <button class="w2e-button" onclick="toggleModal()">W2E</button>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+    <div class="modal-content" id="modalContent" tabindex="0">
+      <h2 id="modalTitle">Collaboration Proposal: Development of W2E (Way to Entity) HR, Asset, and Inventory Management Tool</h2>
+
+      <h3>Executive Summary</h3>
+      <p>We propose the development of W2E (Way to Entity), a cloud-based platform to streamline HR processes (payroll, attendance, employee management) and provide advanced asset and inventory management. Building on existing progress—secure user authentication, location-based clock-in/out, Node.js APIs, and Angular UI—this project requires collaboration to accelerate development, ensure scalability, and extend to mobile platforms (Android and iOS). By leveraging Nginx, Docker, and Kubernetes, W2E will be secure, scalable, and user-friendly, driving operational efficiency.</p>
+
+      <h3>Project Vision</h3>
+      <p>W2E aims to:</p>
+      <ul>
+        <li>Automate HR Processes: Manage payroll, attendance (with location-based clock-in/out), leave requests, and employee data.</li>
+        <li>Advanced Asset and Inventory Management: Track assets (e.g., hardware, equipment) and inventory (e.g., stock, supplies) with lifecycle tracking and restocking alerts.</li>
+        <li>Superior User Experience: Deliver a responsive Angular-based web UI with role-based access (admin, employee, manager), followed by native Android and iOS apps.</li>
+        <li>Scalability and Security: Deploy on a modern stack using Docker, Kubernetes, Nginx, and JWT for secure, high-performance operations.</li>
+      </ul>
+
+      <h3>W2E Features</h3>
+      <h4>HR Management</h4>
+      <ul>
+        <li>Payroll Automation: Multi-currency payroll processing, real-time tax updates, and expense tracking.</li>
+        <li>Employee Data Hub: Centralized employee profiles, documents, and analytics with customizable reports.</li>
+        <li>Onboarding/Offboarding: Streamlined workflows for employee onboarding and offboarding.</li>
+        <li>Attendance Tracking: Location-based clock-in/out with geofencing, leave management, and timesheet tracking.</li>
+        <li>Recruitment & Talent: Skills-based applicant tracking, performance reviews, and learning management.</li>
+        <li>Employee Engagement: Feedback surveys, interactive intranet, and recognition programs.</li>
+      </ul>
+      <h4>Asset Management</h4>
+      <ul>
+        <li>Lifecycle Tracking: Monitor asset assignment, usage, maintenance, and depreciation.</li>
+        <li>Audit Logs: Track asset history and accountability.</li>
+      </ul>
+      <h4>Inventory Management</h4>
+      <ul>
+        <li>Stock Tracking: Monitor stock levels and update inventory records.</li>
+        <li>Restocking Alerts: Automated notifications for low stock and reorder suggestions.</li>
+        <li>Inventory Analytics: Dashboards for turnover rates and supply chain efficiency.</li>
+      </ul>
+
+      <h3>Current Progress</h3>
+      <p>The project has a solid foundation, developed single-handedly:</p>
+      <h4>Backend:</h4>
+      <ul>
+        <li>Node.js APIs for user authentication (JWT-based), role management (admin, employee, manager), and location-based clock-in/out.</li>
+        <li>Database models (MySQL/PostgreSQL) for users, attendance, and roles, with secure data handling.</li>
+      </ul>
+      <h4>Frontend:</h4>
+      <ul>
+        <li>Angular 14 UI with responsive design, supporting login, dashboard, and attendance views.</li>
+        <li>Role-based UI rendering (e.g., admin sees all records, employees see personal data).</li>
+      </ul>
+      <h4>Features:</h4>
+      <ul>
+        <li>Secure login with JWT, supporting multiple user roles.</li>
+        <li>Location-based clock-in/out, validated against policy-defined geofences.</li>
+        <li>API endpoints for attendance tracking, user management, and data retrieval.</li>
+      </ul>
+      <h4>Planned Infrastructure:</h4>
+      <ul>
+        <li>Deployment using Nginx for reverse proxy and load balancing.</li>
+        <li>Containerization with Docker for consistent environments.</li>
+        <li>Orchestration with Kubernetes for scalability and high availability.</li>
+      </ul>
+
+      <h3>Current Ongoing Work</h3>
+      <p>I am currently developing a dynamic policy engine inspired by cloud platforms like AWS and Azure, enabling flexible configuration of resources and permissions. Key aspects include:</p>
+      <ul>
+        <li>Policy-Based Configuration: Creating a system to define and apply policies for HR and asset management, similar to AWS IAM or Azure RBAC. For example, policies can restrict clock-in/out to specific geofences, limit asset access by role, or define payroll approval workflows.</li>
+        <li>JSON-Based Policy Definitions: Designing policies as JSON documents (e.g., <code>{ "resource": "attendance", "action": "clock-in", "condition": { "location": "within_geofence" } }</code>) for modularity and scalability.</li>
+        <li>Policy Enforcement: Implementing middleware in Node.js to evaluate policies against user actions, ensuring compliance at runtime.</li>
+        <li>Admin Interface: Building an Angular-based UI for admins to create, edit, and assign policies without coding, enhancing flexibility.</li>
+        <li>Progress: Initial policy models and API endpoints for policy creation are complete; working on policy evaluation logic and UI integration.</li>
+      </ul>
+      <p>This feature will make W2E highly customizable, allowing admins to tailor workflows, access controls, and operational rules to business needs.</p>
+
+      <h3>Collaboration Needs</h3>
+      <p>To complete the web platform, finalize the policy engine, and develop native mobile apps, collaboration is essential. I propose forming a cross-functional team:</p>
+      <ul>
+        <li>Backend Development (2 developers):
+          <ul>
+            <li>Build APIs for payroll, leave management, asset tracking, inventory management, and policy enforcement.</li>
+            <li>Optimize database for asset, inventory, and policy data.</li>
+          </ul>
+        </li>
+        <li>Frontend Development (1-2 developers):
+          <ul>
+            <li>Develop Angular components for payroll, leave, asset, inventory, and policy management dashboards.</li>
+            <li>Integrate visualizations (e.g., inventory stock charts, asset utilization).</li>
+            <li>Ensure cross-browser compatibility and accessibility.</li>
+          </ul>
+        </li>
+        <li>DevOps Engineer (1 engineer):
+          <ul>
+            <li>Configure Nginx for secure routing and load balancing.</li>
+            <li>Containerize the application with Docker and deploy on Kubernetes.</li>
+            <li>Set up CI/CD pipelines for automated testing and deployment.</li>
+          </ul>
+        </li>
+        <li>Android Developer (1 developer, post-web completion):
+          <ul>
+            <li>Develop a native Android app with offline mode, push notifications, and seamless web sync.</li>
+            <li>Implement HR, asset, inventory, and policy features optimized for mobile.</li>
+          </ul>
+        </li>
+        <li>iOS Developer (1 developer, post-web completion):
+          <ul>
+            <li>Build a native iOS app with identical features to the Android app.</li>
+            <li>Ensure compliance with Apple’s App Store guidelines.</li>
+          </ul>
+        </li>
+        <li>Project Manager (1 manager):
+          <ul>
+            <li>Coordinate tasks, timelines, and deliverables.</li>
+            <li>Manage communication between web and mobile development teams.</li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Estimated Team Size:</strong> 7-8 members (4-5 for web, 2 for mobile post-web)</p>
+      <p><strong>Timeline:</strong></p>
+      <ul>
+        <li>Web MVP: 6-8 months, with iterative releases every 2 months.</li>
+        <li>Mobile Apps: 3-4 months post-web completion.</li>
+      </ul>
+
+      <h3>Technical Roadmap</h3>
+      <h4>Phase 1: Web Foundation (2 months)</h4>
+      <ul>
+        <li>Backend: Extend APIs for payroll, leave management, basic asset/inventory tracking, and dynamic policy enforcement.</li>
+        <li>Frontend: Build Angular UI for payroll summaries, leave requests, asset/inventory lists, and policy management.</li>
+        <li>DevOps: Set up Docker containers, Kubernetes cluster, and Nginx.</li>
+        <li>Deliverable: Functional web prototype with core HR, asset/inventory, and policy features.</li>
+      </ul>
+      <h4>Phase 2: Web Advanced Features (3 months)</h4>
+      <ul>
+        <li>Backend: Implement advanced policy logic and optimize data handling.</li>
+        <li>Frontend: Add dashboards with charts, employee self-service portal, admin controls, and policy configuration UI.</li>
+        <li>DevOps: Optimize Kubernetes for scalability and secure APIs with rate limiting.</li>
+        <li>Deliverable: Beta web platform with advanced features.</li>
+      </ul>
+      <h4>Phase 3: Web Deployment (1-2 months)</h4>
+      <ul>
+        <li>Backend/Frontend: Finalize features and polish UI.</li>
+        <li>DevOps: Deploy production-ready web platform with CI/CD.</li>
+        <li>Training: Create user guides for employees and admins.</li>
+        <li>Deliverable: Production-ready web platform.</li>
+      </ul>
+      <h4>Phase 4: Mobile Development (3-4 months, post-web)</h4>
+      <ul>
+        <li>Android/iOS: Develop native apps with HR, asset, inventory, and policy features.</li>
+        <li>Backend: Extend APIs to support mobile-specific requirements (e.g., offline sync).</li>
+        <li>DevOps: Deploy apps to Google Play Store and Apple App Store.</li>
+        <li>Deliverable: Native Android and iOS apps.</li>
+      </ul>
+
+      <button class="close-button" onclick="toggleModal()">Close</button>
+    </div>
+  </div>
+
   <header>
     <div class="profile">
       <img src="assets/A220BA14-54E7-4EE6-AD62-23BAD0D9F791_1_105_c.jpeg" alt="Mahesh Reddy" />
@@ -292,17 +668,12 @@
         <div><i class="fab fa-python"></i><p>Python</p></div>
         <div><i class="fas fa-network-wired"></i><p>Kubernetes</p></div>
         <div><i class="fab fa-js"></i><p>TypeScript</p></div>
-        
-        <!-- Custom or fallback icons -->
         <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="24"/><p>PostgreSQL</p></div>
         <div><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="24"/><p>Django</p></div>
-
         <div><i class="fas fa-project-diagram"></i><p>Azure ADF</p></div>
         <div><i class="fab fa-aws"></i><p>AWS EC2</p></div>
         <div><i class="fab fa-aws"></i><p>AWS S3</p></div>
         <div><i class="fas fa-cloud-upload-alt"></i><p>Azure Data Lake</p></div>
-
-        <!-- Python libraries -->
         <div><i class="fab fa-python"></i><p>PySpark</p></div>
         <div><i class="fab fa-python"></i><p>NumPy</p></div>
         <div><i class="fab fa-python"></i><p>Pandas</p></div>
@@ -314,5 +685,27 @@
   <footer>
     <p>© Mahesh Reddy 2025 | <a href="https://maheshreddy.in">maheshreddy.in</a></p>
   </footer>
+
+  <script>
+    function toggleModal() {
+      const modal = document.getElementById('modalOverlay');
+      const modalContent = document.getElementById('modalContent');
+      if (!modal || !modalContent) return;
+      if (modal.classList.contains('show')) {
+        modal.classList.remove('show');
+        modalContent.classList.remove('show');
+      } else {
+        modal.classList.add('show');
+        modalContent.classList.add('show');
+        modalContent.focus();
+      }
+    }
+
+    function closeModal(event) {
+      if (event.target === document.getElementById('modalOverlay')) {
+        toggleModal();
+      }
+    }
+  </script>
 </body>
 </html>
