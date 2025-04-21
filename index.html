@@ -8,7 +8,8 @@
   <style>
     /* === Global Styles === */
     :root {
-      --gradient-text: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61);
+      --gradient-text: linear-gradient(to right, #FFD700, #C0C0C0); /* Premium gold-to-silver for modal headings */
+      --portfolio-gradient: linear-gradient(to right, #4285f4, #f4b400, #db4437, #ff6f61); /* Original portfolio gradient */
     }
 
     body {
@@ -20,12 +21,12 @@
       overflow-x: hidden;
     }
 
-    /* === Gradient Heading Styles === */
+    /* === Gradient Heading Styles for Portfolio === */
     .profile h1, .expertise h2, .skills h2 {
       text-align: center;
       margin-top: 2rem;
       text-transform: uppercase;
-      background: var(--gradient-text);
+      background: var(--portfolio-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -274,12 +275,12 @@
     }
 
     .modal-content::-webkit-scrollbar-thumb {
-      background: #4285f4;
+      background: #FFD700;
       border-radius: 4px;
     }
 
     .modal-content::-webkit-scrollbar-thumb:hover {
-      background: #357ae8;
+      background: #D4AF37;
     }
 
     .modal-content h2 {
@@ -294,13 +295,19 @@
     .modal-content h3 {
       font-size: 1.4rem;
       margin: 1.5rem 0 0.5rem;
-      color: #fff;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .modal-content h4 {
       font-size: 1.2rem;
       margin: 1rem 0 0.5rem;
-      color: #ddd;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .modal-content p {
@@ -326,7 +333,7 @@
 
     .modal-content ul li::before {
       content: '•';
-      color: #4285f4;
+      color: #FFD700;
       position: absolute;
       left: 0;
     }
@@ -337,7 +344,7 @@
 
     .modal-content ul ul li::before {
       content: '◦';
-      color: #f4b400;
+      color: #C0C0C0;
     }
 
     .modal-content code {
@@ -346,7 +353,23 @@
       padding: 0.2rem 0.4rem;
       border-radius: 4px;
       font-size: 0.9rem;
-      color: #f4b400;
+      color: #FFD700;
+    }
+
+    /* === Project Vision Highlight === */
+    .vision-highlight {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+      animation: highlightPulse 0.5s ease-out;
+    }
+
+    @keyframes highlightPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
     }
 
     /* === Close Button === */
@@ -407,6 +430,10 @@
       .modal-content p, .modal-content ul li {
         font-size: 0.9rem;
       }
+
+      .vision-highlight {
+        padding: 0.75rem;
+      }
     }
 
     @media (max-width: 400px) {
@@ -429,6 +456,10 @@
       .modal-content p, .modal-content ul li {
         font-size: 0.85rem;
       }
+
+      .vision-highlight {
+        padding: 0.5rem;
+      }
     }
   </style>
 </head>
@@ -445,13 +476,15 @@
       <p>We propose the development of W2E (Way to Entity), a cloud-based platform to streamline HR processes (payroll, attendance, employee management) and provide advanced asset and inventory management. Building on existing progress—secure user authentication, location-based clock-in/out, Node.js APIs, and Angular UI—this project requires collaboration to accelerate development, ensure scalability, and extend to mobile platforms (Android and iOS). By leveraging Nginx, Docker, and Kubernetes, W2E will be secure, scalable, and user-friendly, driving operational efficiency.</p>
 
       <h3>Project Vision</h3>
-      <p>W2E aims to:</p>
-      <ul>
-        <li>Automate HR Processes: Manage payroll, attendance (with location-based clock-in/out), leave requests, and employee data.</li>
-        <li>Advanced Asset and Inventory Management: Track assets (e.g., hardware, equipment) and inventory (e.g., stock, supplies) with lifecycle tracking and restocking alerts.</li>
-        <li>Superior User Experience: Deliver a responsive Angular-based web UI with role-based access (admin, employee, manager), followed by native Android and iOS apps.</li>
-        <li>Scalability and Security: Deploy on a modern stack using Docker, Kubernetes, Nginx, and JWT for secure, high-performance operations.</li>
-      </ul>
+      <div class="vision-highlight">
+        <p>W2E aims to:</p>
+        <ul>
+          <li>Automate HR Processes: Manage payroll, attendance (with location-based clock-in/out), leave requests, and employee data.</li>
+          <li>Advanced Asset and Inventory Management: Track assets (e.g., hardware, equipment) and inventory (e.g., stock, supplies) with lifecycle tracking and restocking alerts.</li>
+          <li>Superior User Experience: Deliver a responsive Angular-based web UI with role-based access (admin, employee, manager), followed by native Android and iOS apps.</li>
+          <li>Scalability and Security: Deploy on a modern stack using Docker, Kubernetes, Nginx, and JWT for secure, high-performance operations.</li>
+        </ul>
+      </div>
 
       <h3>W2E Features</h3>
       <h4>HR Management</h4>
