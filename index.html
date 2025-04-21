@@ -474,7 +474,157 @@
 
       <h3>Executive Summary</h3>
       <p>We propose the development of W2E (Way to Entity), a cloud-based platform to streamline HR processes (payroll, attendance, employee management) and provide advanced asset and inventory management. Building on existing progress—secure user authentication, location-based clock-in/out, Node.js APIs, and Angular UI—this project requires collaboration to accelerate development, ensure scalability, and extend to mobile platforms (Android and iOS). By leveraging Nginx, Docker, and Kubernetes, W2E will be secure, scalable, and user-friendly, driving operational efficiency.</p>
+<svg viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+       <svg viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="900" fill="#1a1a1a" />
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#333" stroke-width="0.5"/>
+  </pattern>
+  <rect width="1000" height="900" fill="url(#grid)" />
 
+  <!-- Title -->
+  <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#FFD700"/>
+    <stop offset="100%" style="stop-color:#C0C0C0"/>
+  </linearGradient>
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">W2E Architecture Diagram</text>
+
+  <!-- Gradient for component boxes -->
+  <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+    <stop offset="100%" style="stop-color:rgba(255,255,255,0.08)"/>
+  </linearGradient>
+
+  <!-- User Layer -->
+  <rect x="400" y="70" width="200" height="60" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">Users</text>
+  <text x="500" y="120" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">(Admin, Employee, Manager)</text>
+
+  <!-- CDN Layer -->
+  <rect x="400" y="160" width="200" height="60" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="190" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">CDN</text>
+  <text x="500" y="210" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">(AWS CloudFront/Azure CDN)</text>
+
+  <!-- Client Layer -->
+  <rect x="220" y="250" width="560" height="150" rx="10" ry="10" fill="url(#boxGradient)" stroke="#FFD700" stroke-width="2" filter="drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))" />
+  <text x="500" y="275" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">Client Layer (Frontend)</text>
+  
+  <rect x="250" y="295" width="500" height="90" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="315" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">Angular 14 Frontend</text>
+  <text x="500" y="335" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Responsive SPA with role-based UI</text>
+  <text x="500" y="355" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Dynamic Policy UI, Dashboards, Self-service portal</text>
+  <text x="500" y="375" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Docker, Kubernetes, Nginx</text>
+
+  <!-- Application Layer -->
+  <rect x="220" y="430" width="560" height="180" rx="10" ry="10" fill="url(#boxGradient)" stroke="#FFD700" stroke-width="2" filter="drop-shadow(0 0 10px rgba(255, 215, 0, 0.3))" />
+  <text x="500" y="455" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">Application Layer (Backend)</text>
+  
+  <rect x="250" y="475" width="240" height="120" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="370" y="495" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">Node.js Backend</text>
+  <text x="370" y="515" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Express.js REST APIs</text>
+  <text x="370" y="535" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">JWT Authentication</text>
+  <text x="370" y="555" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Business Logic, Microservices</text>
+  <text x="370" y="575" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Docker, Kubernetes</text>
+  
+  <rect x="510" y="475" width="240" height="120" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="630" y="495" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">Dynamic Policy Engine</text>
+  <text x="630" y="515" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">JSON-based policies</text>
+  <text x="630" y="535" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Access control</text>
+  <text x="630" y="555" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Workflow automation</text>
+  <text x="630" y="575" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Geofencing validation</text>
+
+  <!-- Data Layer -->
+  <rect x="220" y="640" width="560" height="110" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="665" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">Data Layer</text>
+  
+  <rect x="250" y="685" width="500" height="50" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="705" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#fff">MySQL/PostgreSQL</text>
+  <text x="500" y="725" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Users, roles, attendance, payroll, assets, inventory, policies</text>
+
+  <!-- Infrastructure Layer -->
+  <rect x="120" y="780" width="760" height="100" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" />
+  <text x="500" y="805" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">Infrastructure Layer</text>
+  
+  <rect x="140" y="825" width="200" height="40" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="240" y="850" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">Docker/Kubernetes</text>
+  
+  <rect x="360" y="825" width="140" height="40" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="430" y="850" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">Nginx</text>
+  
+  <rect x="520" y="825" width="140" height="40" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="590" y="850" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">CI/CD</text>
+  
+  <rect x="680" y="825" width="180" height="40" rx="8" ry="8" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="1" />
+  <text x="770" y="850" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">AWS/Azure Services</text>
+
+  <!-- Cloud connection indicators -->
+  <rect x="820" y="300" width="100" height="380" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" opacity="0.7" />
+  <text x="870" y="330" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)" transform="rotate(90, 870, 330)">Cloud Services</text>
+  
+  <rect x="830" y="380" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="400" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">S3/Blob</text>
+  
+  <rect x="830" y="420" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">EC2/AKS</text>
+  
+  <rect x="830" y="460" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="480" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">EKS/AKS</text>
+  
+  <rect x="830" y="500" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="520" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">RDS/Azure DB</text>
+  
+  <rect x="830" y="540" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="560" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">VPC/VNet</text>
+  
+  <rect x="830" y="580" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="600" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Monitoring</text>
+  
+  <rect x="830" y="620" width="80" height="30" rx="5" ry="5" fill="rgba(255,255,255,0.05)" stroke="#FFD700" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="870" y="640" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">IAM/RBAC</text>
+
+  <!-- Connection Arrows -->
+  <!-- Users to CDN -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4285f4" />
+    </marker>
+  </defs>
+  
+  <!-- User Flow Arrows -->
+  <line x1="500" y1="130" x2="500" y2="160" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="500" y1="220" x2="500" y2="250" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="500" y1="400" x2="500" y2="430" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="500" y1="610" x2="500" y2="640" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="500" y1="750" x2="500" y2="780" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Bidirectional Arrows -->
+  <line x1="370" y1="595" x2="370" y2="640" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <line x1="390" y1="640" x2="390" y2="595" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <line x1="450" y1="535" x2="510" y2="535" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Cloud Service Connections -->
+  <line x1="780" y1="340" x2="830" y2="395" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="780" y1="500" x2="830" y2="430" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="780" y1="535" x2="830" y2="475" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="780" y1="695" x2="830" y2="515" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  <line x1="780" y1="835" x2="830" y2="630" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Legend -->
+  <rect x="120" y="70" width="200" height="140" rx="10" ry="10" fill="url(#boxGradient)" stroke="#fff" stroke-width="1" opacity="0.7" />
+  <text x="220" y="95" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="url(#titleGradient)">Legend</text>
+  
+  <line x1="140" y1="115" x2="170" y2="115" stroke="#4285f4" stroke-width="2" marker-end="url(#arrowhead)" />
+  <text x="220" y="120" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Data Flow</text>
+  
+  <line x1="140" y1="145" x2="170" y2="145" stroke="#FFD700" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="220" y="150" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Cloud Services</text>
+  
+  <rect x="140" y="165" width="20" height="20" rx="3" ry="3" fill="url(#boxGradient)" stroke="#FFD700" stroke-width="2" filter="drop-shadow(0 0 5px rgba(255, 215, 0, 0.3))" />
+  <text x="220" y="180" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#ccc">Core Components</text>
+</svg>
+    </svg>
       <h3>Project Vision</h3>
       <div class="vision-highlight">
         <p>W2E aims to:</p>
